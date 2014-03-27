@@ -19,7 +19,7 @@ $db = SQLite3::Database.open 'sneaker.db' #user could pass this through the CLI
 
 class Sneaker
 
-  COLUMNS = [:brand, :name, :cost, :created_at, :updated_at]
+  COLUMNS = [:brand, :name, :cost]
 
   def self.display_all
     $db.execute("SELECT * FROM sneakers;")
@@ -46,11 +46,11 @@ class Sneaker
   end
 
 
-  attr_reader :id
+  attr_reader :id, :brand, :name, :cost
   attr_accessor :brand, :name, :cost
 
   def initialize(data)
-    # @id = data[:id]
+    @id = data[:id]
     @brand = data[:brand]
     @name = data[:name]
     @cost = data[:cost]
