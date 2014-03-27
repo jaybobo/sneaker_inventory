@@ -32,15 +32,19 @@ SCREEN
   end
 
 
-  class DisplaySneaker
+  class DisplaySneakers
     def self.print!(arrayofarrays)
       puts "- - - - - - - - - - - - - - - - - - -"
       puts "SA - Sneaker Inventory"
       puts "- - - - - - - - - - - - - - - - - - -\n"
       arrayofarrays.each do |array|
         puts array
+        #puts array
       end
     end
+  end
+
+  class LoadMessage
   end
 
 

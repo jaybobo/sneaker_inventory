@@ -4,7 +4,7 @@ require_relative "view-sneaker"
 
 
 class SneakerController
-  s = Sneaker.new
+  #s = Sneaker.new
 
   def self.run!
     until
@@ -14,7 +14,7 @@ class SneakerController
 
       case user_input
       when "list"
-        SneakerView::DisplaySneakers.print!() #where are these coming from?#Sneaker.display_all)
+        SneakerView::DisplaySneakers.print!(Sneaker.display_all)
       when "find"
 
       when "add"

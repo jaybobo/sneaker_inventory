@@ -5,37 +5,19 @@ $db = SQLite3::Database.open 'sneaker.db' #user could pass this through the CLI
 
 
 
-class Inventory
-end
+# class Inventory
+
+  # attr_reader :warehouse
+
+  # def initialize(warehouse)
+  #   @warehouse = warehouse
+  # end
+# end
 
 
 
 
 class Sneaker
-
-  attr_reader :id
-  attr_accessor :brand, :name, :cost
-
-  def initialize(data)
-    # @id = data[:id]
-    @brand = data[:brand]
-    @name = data[:name]
-    @cost = data[:cost]
-    @created_at = data[:created_at]
-    @updated_at = data[:updated_at]
-  end
-
-
-  def defaults
-    {
-      :brand => "Default",
-      :name => 'Sneaker',
-      :cost => '0',
-      # :created_at => Time.now,
-      # :updated_at => Time.now
-    }
-  end
-
 
   COLUMNS = [:brand, :name, :cost, :created_at, :updated_at]
 
@@ -63,7 +45,35 @@ class Sneaker
     $db.execute("DELETE FROM sneakers WHERE id = ?", id)
   end
 
+
+  attr_reader :id
+  attr_accessor :brand, :name, :cost
+
+  def initialize(data)
+    # @id = data[:id]
+    @brand = data[:brand]
+    @name = data[:name]
+    @cost = data[:cost]
+    @created_at = data[:created_at]
+    @updated_at = data[:updated_at]
+  end
+
+
+  def defaults
+    {
+      :brand => "Default",
+      :name => 'Sneaker',
+      :cost => '0',
+      # :created_at => Time.now,
+      # :updated_at => Time.now
+    }
+  end
+
+
+
+
 end
+
 
 #p Sneaker.display_all
 #p Sneaker.where(1)
@@ -71,3 +81,8 @@ end
 #Sneaker.remove_sneaker(4)
 #Sneaker.update_sneaker_price(1, 75)
 #p Sneaker.display_all
+
+
+# i = Inventory.new(Sneaker.display_all)
+# p "this is warehouse"
+# p i.warehouse
